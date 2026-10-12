@@ -1,0 +1,10 @@
+name,sensor,fault_type,start_s,end_s,magnitude
+gyro_bias,gyro_z_rad_s,bias,50.0,65.0,+12 rad/s
+temperature_drift,temperature_C,drift,75.0,95.0,0 to +6 C
+pressure_stuck,pressure_bar,stuck,105.0,120.0,held constant
+voltage_dropout,voltage_V,dropout,125.0,128.0,NaN
+vibration_spike,accel_x_g,spike,135.0,140.0,+/-1.3 g impulses
+vibration_noise,accel_y_g,increased_noise,150.0,165.0,+0.20 g sigma
+rpm_gain,rpm,gain_error,175.0,190.0,+6% gain
+vibration_interference,accel_x_g,sinusoidal_interference,200.0,215.0,"90 Hz, 0.28 g"
+bearing_degradation,accel_y_g,slow_degradation,220.0,240.0,ramped 1x/2x vibration

@@ -1,0 +1,16 @@
+{
+  "simulation": {
+    "fs_hz": 250.0,
+    "duration_s": 240.0,
+    "seed": 42
+  },
+  "pipeline": {
+    "calibration_end_s": 40.0,
+    "feature_window_s": 2.0,
+    "feature_stride_s": 1.0,
+    "autoencoder_epochs": 40,
+    "autoencoder_hidden_dim": 24,
+    "autoencoder_latent_dim": 6,
+    "autoencoder_learning_rate": 0.001
+  }
+}

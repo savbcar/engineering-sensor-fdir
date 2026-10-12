@@ -1,0 +1,22 @@
+{
+  "status": "pipeline_completed",
+  "samples": 60000,
+  "feature_windows": 239,
+  "training_windows": 239,
+  "sampling_frequency_hz": 250.0,
+  "nyquist_hz": 125.0,
+  "fault_count": 9,
+  "feature_count": 55,
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0+cpu"
+  },
+  "ml_thresholds": {
+    "isolation_forest": -0.01973642891315501,
+    "autoencoder": 6.438025951385498
+  },
+  "autoencoder_final_training_loss": 0.7960234880447388
+}
