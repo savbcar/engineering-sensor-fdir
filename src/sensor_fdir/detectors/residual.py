@@ -34,7 +34,7 @@ class ResidualDetector:
     def fit(self, healthy: pd.DataFrame) -> ResidualDetector:
         res = self._residuals(healthy)
         self.stats = {name: self._robust_stats(x) for name, x in res.items()}
-        w = max(int(round(self.fs_hz)), 4)
+        w = max(round(self.fs_hz), 4)
         pstd = healthy["pressure_bar"].rolling(w, min_periods=w).std().dropna().to_numpy()
 
         ax = healthy["accel_x_g"].to_numpy(dtype=float)
@@ -64,9 +64,9 @@ class ResidualDetector:
     def predict(self, df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
         if not self.stats:
             raise RuntimeError("Detector must be fitted before predict")
-        n = len(df)
-        w = max(int(round(self.fs_hz)), 4)
-        w2 = max(int(round(2.0 * self.fs_hz)), 4)
+        len(df)
+        w = max(round(self.fs_hz), 4)
+        w2 = max(round(2.0 * self.fs_hz), 4)
         res = self._residuals(df)
         flags = pd.DataFrame({"time_s": df["time_s"].to_numpy()})
         scores = pd.DataFrame({"time_s": df["time_s"].to_numpy()})

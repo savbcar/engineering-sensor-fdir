@@ -67,7 +67,7 @@ def run_pipeline(cfg: Config, output_dir: str | Path) -> dict[str, object]:
     rule_flags.to_csv(data_dir / "threshold_rule_flags.csv", index=False)
 
     stat = StatisticalDetector(threshold=6.0).fit(calibration)
-    stat_flags, stat_score = stat.predict(faulty)
+    stat_flags, _stat_score = stat.predict(faulty)
     stat_flags.to_csv(data_dir / "statistical_flags.csv", index=False)
 
     residual = ResidualDetector(fs_hz=fs, sigma_threshold=6.0).fit(calibration)

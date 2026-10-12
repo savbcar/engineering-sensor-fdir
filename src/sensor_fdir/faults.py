@@ -63,7 +63,7 @@ def inject_faults(
             df.loc[mask, spec.sensor] = np.nan
         elif name == "vibration_spike":
             candidates = np.where(mask)[0]
-            step = max(int(round(0.40 * fs_hz)), 1)
+            step = max(round(0.40 * fs_hz), 1)
             spike_idx = candidates[::step]
             df.loc[spike_idx, spec.sensor] += rng.choice([-1.0, 1.0], len(spike_idx)) * 1.3
             labels[f"fault_{name}"] = 0

@@ -73,8 +73,8 @@ def extract_window_features(
     stride_s: float = 0.5,
 ) -> pd.DataFrame:
     """Extract time- and frequency-domain features from overlapping windows."""
-    win = int(round(window_s * fs_hz))
-    stride = int(round(stride_s * fs_hz))
+    win = round(window_s * fs_hz)
+    stride = round(stride_s * fs_hz)
     if win < 8 or stride < 1:
         raise ValueError("Window/stride configuration is too small")
     if len(df) < win:
@@ -155,9 +155,6 @@ def diagnostic_feature_matrix(features: pd.DataFrame) -> tuple[np.ndarray, list[
     """Operating-point-compensated feature subset used by unsupervised detectors."""
     names = [
         c for c in features.columns
-        if c.startswith("residual__")
-        or c.startswith("accel_x_g__")
-        or c.startswith("accel_y_g__")
-        or c.endswith("__dropout_fraction")
+        if c.startswith(("residual__", "accel_x_g__", "accel_y_g__")) or c.endswith("__dropout_fraction")
     ]
     return features[names].to_numpy(dtype=float), names

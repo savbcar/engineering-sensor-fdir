@@ -11,7 +11,7 @@ class ThresholdRuleDetector:
 
     def predict(self, df: pd.DataFrame) -> pd.DataFrame:
         out = pd.DataFrame({"time_s": df["time_s"].to_numpy()})
-        w = max(int(round(self.fs_hz)), 2)
+        w = max(round(self.fs_hz), 2)
         p_std = df["pressure_bar"].rolling(w, min_periods=w).std()
         ay_std = df["accel_y_g"].rolling(w, min_periods=w).std()
         temp_rate = df["temperature_C"].diff().rolling(w, min_periods=w).mean() * self.fs_hz
